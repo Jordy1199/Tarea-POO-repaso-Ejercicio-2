@@ -1,13 +1,49 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        DocenteInvestigador di = new DocenteInvestigador();
+
+
+        System.out.print("Ingrese el código: ");
+        String codigo = scanner.nextLine();
+        di.setCodigo(codigo);
+
+        System.out.print("Ingrese el nombre: ");
+        String nombre = scanner.nextLine();
+        di.setNombre(nombre);
+
+        System.out.print("Ingrese la edad: ");
+        int edad = scanner.nextInt();
+        di.setEdad(edad);
+
+        System.out.print("Ingrese las horas de clase (1-40): ");
+        int horas = scanner.nextInt();
+        di.setHorasClase(horas);
+
+        System.out.print("Ingrese el valor por hora: ");
+        double valorHora = scanner.nextDouble();
+        di.setValorHora(valorHora);
+
+        System.out.print("Ingrese el número de publicaciones: ");
+        int publicaciones = scanner.nextInt();
+        di.setPublicaciones(publicaciones);
+
+        scanner.close();
+
+        PersonaAcademica persona = di;
+
+        System.out.println();
+
+        persona.mostrarDatos();
+        persona.describirRol();
+
+        System.out.println("Pago final: $" + persona.calcularPago());
+
+        System.out.println("Pago con bono extra: $" + di.calcularPago(50));
     }
 }
